@@ -1,9 +1,9 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue'
+import ProjectCard from '../components/ProjectCard.vue'
 
     export default{
-        name: "ProjectMain",
+        name: "portfolio",
         components:{
             ProjectCard,
         },
@@ -42,9 +42,6 @@ import ProjectCard from './ProjectCard.vue'
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2 class="text-center">Boolfolio</h2>
-            </div>
             <div>
                 <div v-if="loading" class="col-12 d-flex justify-content-center">
                     <div class="loader"></div> 
