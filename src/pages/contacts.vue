@@ -12,7 +12,9 @@ import { store } from '../store';
                 email: '',
                 phone: '',
                 message: '',
-                errors: null
+                errors: {},
+                success: false,
+                loading: false,
             }
         },
         methods:{
@@ -22,17 +24,28 @@ import { store } from '../store';
                     surname: this.surname,
                     email: this.email,
                     phone: this.phone,
-                    message: this.message
+                    message: this.message,
                 }
+
+                this.loading = true
+                this.errors = null
+
                 axios.post(`${this.store.baseUrl}/api/contacts`, data).then((response) => {
-                    if(!this.success){
+                    if(!response.data.success){
                         this.errors = response.data.errors
+                        this.loading = false;
                     }else{
                         this.name = '';
                         this.surname = '';
                         this.email = '';
                         this.phone = '';
                         this.message = '';
+                        this.success = true;
+                        this.loading = false;
+
+                        setTimeout(()=>{
+                            this.$router.push({'name': 'thankyou'})
+                        }, 3000);
                     }
                 });
             }
@@ -95,26 +108,44 @@ import { store } from '../store';
                         <div class="row">
                             <div class="col-12 col-md-6 my-2">
                                 <label for="nome" class="control-label">Inserisci il nome</label>
-                                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" v-model="name">
+                                <input type="text" class="form-control" :class="{'is-invalid': errors.name}" name="nome" id="nome" placeholder="Nome" v-model="name">
+                                <div v-for="(error, index) in errors.name" :key="`message-error-${index}`" class="text-white">
+                                    {{ error }}
+                                </div>
                             </div>
                             <div class="col-12 col-md-6 my-2">
                                 <label for="cognome" class="control-label">Inserisci il cognome</label>
-                                <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome" v-model="surname">
+                                <input type="text" class="form-control" :class="{'is-invalid': errors.surname}" name="cognome" id="cognome" placeholder="Cognome" v-model="surname">
+                                <div v-for="(error, index) in errors.surname" :key="`message-error-${index}`" class="text-white">
+                                    {{ error }}
+                                </div>
                             </div>
                             <div class="col-12 col-md-6 my-2">
                                 <label for="email" class="control-label">Inserisci la mail</label>
-                                <input type="mail" class="form-control" name="email" id="email" placeholder="Email" v-model="email">
+                                <input type="mail" class="form-control" :class="{'is-invalid': errors.email}" name="email" id="email" placeholder="Email" v-model="email">
+                                <div v-for="(error, index) in errors.email" :key="`message-error-${index}`" class="text-white">
+                                    {{ error }}
+                                </div>
                             </div>
                             <div class="col-12 col-md-6 my-2">
                                 <label for="telefono" class="control-label">Inserisci il numero di telefono</label>
-                                <input type="phone" class="form-control" name="telefono" id="telefono" placeholder="Telefono" v-model="phone">
+                                <input type="phone" class="form-control" :class="{'is-invalid': errors.phone}" name="telefono" id="telefono" placeholder="Telefono" v-model="phone">
+                                <div v-for="(error, index) in errors.phone" :key="`message-error-${index}`" class="text-white">
+                                    {{ error }}
+                                </div>
                             </div>
                             <div class="col-12 my-2">
                                 <label for="messaggio" class="control-label">Inserisci un messaggio</label>
-                                <textarea class="form-control" name="messaggio" id="messaggio" placeholder="messaggio" cols="30" rows="5" v-model="message"></textarea>
+                                <textarea class="form-control" name="messaggio" :class="{'is-invalid': errors.message}" id="messaggio" placeholder="messaggio" cols="30" rows="5" v-model="message"></textarea>
+                                <div v-for="(error, index) in errors.message" :key="`message-error-${index}`" class="text-white">
+                                    {{ error }}
+                                </div>
                             </div>
                             <div class="col-12 mt-3 text-center">
-                                <button type="submit" class="send-email">Invia</button>
+                                <button type="submit" class="send-email" :disabled="loading">{{loading ? 'Sto inviando...' : 'Invia'}}</button>
+                                <div class="my-3" v-if="success">
+                                    Messaggio inviato con successo
+                                </div>
                             </div>
                         </div>
                     </form>

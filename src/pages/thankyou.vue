@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'notfound'
+        name: 'thankyou'
     }
 </script>
 
@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 my-5 py-5 text-center">
-                <h2>404: Pagina non trovata</h2>
+                <h2>Grazie per averci contattato!</h2>
             </div>
             <p class="text-center">Puoi continuare a visualizzare i nostri progetti cliccando sul seguente link:</p>
             <router-link :to="{name: 'portfolio'}" class="btn btn-sm btn-success portfolio">
