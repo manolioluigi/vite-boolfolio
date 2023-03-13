@@ -12,6 +12,10 @@
                         label: 'Portfolio',
                         routeName: 'portfolio'
                     },
+                    {
+                        label: 'Contatti',
+                        routeName: 'contacts'
+                    }
                 ],
             }
         }

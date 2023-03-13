@@ -3,6 +3,7 @@ import homepage from './pages/homepage.vue';
 import portfolio from './pages/portfolio.vue';
 import singleproject from './pages/singleproject.vue';
 import notfound from './pages/notfound.vue';
+import contacts from './pages/contacts.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -22,10 +23,16 @@ const router = createRouter({
             component: singleproject
         },
         {
+            path: '/contatti',
+            name: 'contacts',
+            component: contacts
+        },
+        {
             path: '/*',
             name: 'not-found',
             component: notfound
-        }
+        },
+
     ]
 });
 
