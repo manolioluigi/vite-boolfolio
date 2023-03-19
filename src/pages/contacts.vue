@@ -3,7 +3,7 @@ import axios from 'axios';
 import { store } from '../store';
 
     export default {
-        name: 'contacts',
+        name: 'Contacts',
         data() {
             return {
                 store,
@@ -44,7 +44,7 @@ import { store } from '../store';
                         this.loading = false;
 
                         setTimeout(()=>{
-                            this.$router.push({'name': 'thankyou'})
+                            this.$router.push({'name': 'ThankYou'})
                         }, 3000);
                     }
                 });

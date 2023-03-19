@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'thankyou'
+        name: 'ThankYou'
     }
 </script>
 
@@ -11,7 +11,7 @@
                 <h2>Grazie per averci contattato!</h2>
             </div>
             <p class="text-center">Puoi continuare a visualizzare i nostri progetti cliccando sul seguente link:</p>
-            <router-link :to="{name: 'portfolio'}" class="btn btn-sm btn-success portfolio">
+            <router-link :to="{name: 'Portfolio'}" class="btn btn-sm btn-success portfolio">
                 Vedi tutti i progetti
             </router-link>
         </div>

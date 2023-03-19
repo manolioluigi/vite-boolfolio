@@ -1,42 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import homepage from './pages/homepage.vue';
-import portfolio from './pages/portfolio.vue';
-import singleproject from './pages/singleproject.vue';
-import notfound from './pages/notfound.vue';
-import thankyou from './pages/thankyou.vue';
-import contacts from './pages/contacts.vue';
+import HomePage from './pages/HomePage.vue';
+import Portfolio from './pages/Portfolio.vue';
+import SingleProject from './pages/SingleProject.vue';
+import NotFound from './pages/NotFound.vue';
+import ThankYou from './pages/ThankYou.vue';
+import Contacts from './pages/Contacts.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: '/',
-            name: 'homepage',
-            component: homepage
+            name: 'HomePage',
+            component: HomePage
         },
         {
-            path: '/portfolio',
-            name: 'portfolio',
-            component: portfolio
+            path: '/Portfolio',
+            name: 'Portfolio',
+            component: Portfolio
         },
         {
-            path: '/portfolio/:slug',
-            name: 'single-project',
-            component: singleproject
+            path: '/Portfolio/:slug',
+            name: 'SingleProject',
+            component: SingleProject
         },
         {
-            path: '/contatti',
-            name: 'contacts',
-            component: contacts
+            path: '/Contatti',
+            name: 'Contacts',
+            component: Contacts
         },
         {
-            path: '/thank-you',
-            name: 'thankyou',
-            component: thankyou
+            path: '/Thank-You',
+            name: 'ThankYou',
+            component: ThankYou
         },
         {
             path: '/*',
-            name: 'not-found',
-            component: notfound
+            name: 'NotFound',
+            component: NotFound
         },
 
     ]

@@ -3,7 +3,7 @@ import {store} from '../store.js';
 import axios from 'axios';
 
     export default {
-        name: 'singleproject',
+        name: 'SingleProject',
         data(){
             return{
                 store,
@@ -18,7 +18,7 @@ import axios from 'axios';
                     this.project = response.data.project
                     this.loading = false
                 }else{
-                    this.$router.push({name: 'not-found'})
+                    this.$router.push({name: 'NotFound'})
                 }
             });
         }
@@ -33,7 +33,7 @@ import axios from 'axios';
             </div>
             <div v-else class="col-12">
                 <div class="d-flex justify-content-end my-5">
-                    <router-link :to="{name: 'portfolio'}" class="btn btn-sm btn-success">
+                    <router-link :to="{name: 'Portfolio'}" class="btn btn-sm btn-success">
                         Torna ai progetti
                     </router-link>
                 </div>

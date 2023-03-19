@@ -5,16 +5,16 @@
             return{
                 menuItems:[
                     {
-                        label: 'Homepage',
-                        routeName: 'homepage'
+                        label: 'HomePage',
+                        routeName: 'HomePage'
                     },
                     {
                         label: 'Portfolio',
-                        routeName: 'portfolio'
+                        routeName: 'Portfolio'
                     },
                     {
                         label: 'Contatti',
-                        routeName: 'contacts'
+                        routeName: 'Contacts'
                     }
                 ],
             }

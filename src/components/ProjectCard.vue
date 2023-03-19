@@ -43,7 +43,7 @@ import {store} from '../store.js';
         <div class="card-text py-1">
             {{ project.content }}
         </div>
-        <router-link :to="{ name: 'single-project', params: { slug: project.slug } }" class="btn btn-sm btn-success my-3">
+        <router-link :to="{ name: 'SingleProject', params: { slug: project.slug } }" class="btn btn-sm btn-success my-3">
             Continua a leggere
         </router-link>
     </div>

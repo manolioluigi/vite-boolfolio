@@ -4,7 +4,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 import {store} from '../store.js';
 
     export default{
-        name: "portfolio",
+        name: "Portfolio",
         components:{
             ProjectCard,
         },
